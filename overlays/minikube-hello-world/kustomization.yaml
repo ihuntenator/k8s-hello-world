@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+
+transformers:
+
+- |-
+  apiVersion: builtin
+  kind: LabelTransformer
+  metadata:
+    name: applicationLabels
+  labels:
+    app: hello-world
+    environment: lab
+    name: hello-world
+  fieldSpecs:
+  - path: metadata/labels
+    create: true
+    kind: Deployment
+  - path: spec/template/metadata/labels
+    create: true
+    kind: Deployment
+  - path: metadata/labels
+    create: true
+    kind: Namespace
+

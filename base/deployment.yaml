@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  namespace: hello-world
+spec:
+  selector:
+    matchLabels:
+      name: hello-world
+  template:
+    metadata:
+      labels:
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
