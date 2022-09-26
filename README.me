@@ -1,5 +1,13 @@
 # k8s hello-world
 
-Use kustomize to create a manifest
+Use kustomize to create a manifest to inspect:
+```
+k kustomize overlays/miikube/minukube-manifest.yaml
+```
 
+
+Create from kustomize:
+```
+k create -k overlays/minikube
+```
 

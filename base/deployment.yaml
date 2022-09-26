@@ -11,7 +11,19 @@ spec:
     metadata:
       labels:
     spec:
+      securityContext:
+#        runAsUser: 1000
+#        runAsGroup: 3000
+#        fsGroup: 2000
       containers:
       - name: nginx
         image: nginx
-   
+        resources:
+         requests:
+           cpu: 10m
+           memory: 64Mi
+        securityContext:
+#          allowPrivilegeEscalation: false 
+          capabilities:
+            drop:
+            - ALL
